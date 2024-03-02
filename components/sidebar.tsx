@@ -1,12 +1,30 @@
-import Link from 'next/link';
+'use client';
+import { Button } from './ui/button';
+import { useParams, useRouter } from 'next/navigation';
 
-const Sidebar = async () => {
+const Sidebar = () => {
+  const router = useRouter();
+
   return (
-    <div className='flex flex-col p-5 border-2'>
+    <div className='flex flex-col p-5 border-2 rounded-sm'>
       <div>Shops:</div>
       <div className='flex flex-col'>
-        <Link href='/shop1'>Drugs 24</Link>
-        <Link href='/shop2'>Pharmacy</Link>
+        <Button
+          className='m-3'
+          onClick={() => {
+            router.push(`/Drugs_24`);
+          }}
+        >
+          Drugs 24
+        </Button>
+        <Button
+          className='m-3'
+          onClick={() => {
+            router.push(`/Pharmacy`);
+          }}
+        >
+          Pharmacy
+        </Button>
       </div>
     </div>
   );

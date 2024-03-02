@@ -33,4 +33,15 @@ model CartItem {
   quantity Int
   itemId   Int
   item     Item  @relation(fields: [itemId], references: [id])
+  orderId  Int?
+  order    Order? @relation(fields: [orderId], references: [id])
+}
+
+model Order {
+  id         Int        @id @default(autoincrement())
+  email      String
+  phone      String
+  address    String
+  createdAt  DateTime   @default(now())
+  cartItems  CartItem[]
 }

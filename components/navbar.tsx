@@ -1,11 +1,27 @@
-import Link from 'next/link';
+'use client';
 
-const Navbar = async () => {
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
+
+const Navbar = () => {
+  const pathname = usePathname();
   return (
     <div className='border-b'>
       <div className='flex h-16 items-center px-4'>
-        <Link href='/'>Shops</Link>
-        <Link href='/cart'>Cart</Link>
+        <Link
+          className={cn(pathname === '/shop1' && 'group-hover:h-[20px]')}
+          href='/'
+        >
+          Shops
+        </Link>
+        |
+        <Link
+          className={cn(pathname === '/cart' && 'text-blue-600')}
+          href='/cart'
+        >
+          Cart
+        </Link>
       </div>
     </div>
   );
