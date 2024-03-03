@@ -7,7 +7,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ items }) => {
   return (
-    <div className='space-y-4'>
+    <div className='space-y-4 w-full h-full'>
       <div className='flex'>
         {items.map((item) => (
           <ShopCard key={item.id} data={item} />

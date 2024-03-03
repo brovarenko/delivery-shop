@@ -1,9 +1,12 @@
 import getShops from '@/actions/get-shops';
-import { Button } from './ui/button';
-import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
-const Sidebar = async () => {
+interface SidebarProps {
+  shopId: number;
+}
+
+const Sidebar: React.FC<SidebarProps> = async ({ shopId }) => {
   const shops = await getShops();
 
   return (
@@ -11,7 +14,14 @@ const Sidebar = async () => {
       <div>Shops:</div>
       <div className='flex flex-col'>
         {shops.map((shop) => (
-          <Link className='p-4 ' key={shop.id} href={`/${shop.id}`}>
+          <Link
+            className={cn(
+              'p-4 m-4 border-2 rounded-sm hover:cursor-pointer ',
+              shopId == shop.id && 'border-green-600'
+            )}
+            key={shop.id}
+            href={`/${shop.id}`}
+          >
             {shop.name}
           </Link>
         ))}

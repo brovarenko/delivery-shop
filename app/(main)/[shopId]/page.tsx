@@ -11,7 +11,7 @@ const ShopPage: React.FC<ShopPageProps> = async ({ params }) => {
   const products = await getProduct(params.shopId);
 
   return (
-    <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8'>
+    <div className='flex flex-col px-4 mx-5 border-2 rounded-sm w-full h-full'>
       <ShopList items={products} />
     </div>
   );

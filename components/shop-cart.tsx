@@ -19,14 +19,14 @@ const ShopCard: React.FC<ProductCard> = ({ data }) => {
     cart.addItem(data);
   };
   return (
-    <div className='border-2 p-3 m-3 rounded-sm '>
+    <div className='border-2 p-3 m-5 rounded-sm '>
       <div className='bg-gray-300 rounded-md mb-2'>
         <Image
           src={`/${data.image}.jpg`}
           alt={data.name}
-          width={200}
+          width={250}
           height={200}
-          className='w-[200px] h-[200px] rounded object-cover'
+          className='w-[250px] h-[200px] rounded object-cover'
         />
       </div>
       <h2 className='text-slate-400'>{data.name}</h2>

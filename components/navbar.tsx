@@ -6,18 +6,22 @@ import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const pathname = usePathname();
+  const hasNumber = /\d+/.test(pathname);
   return (
-    <div className='border-b'>
+    <div className='text-lg border-b'>
       <div className='flex h-16 items-center px-4'>
         <Link
-          className={cn(pathname === '/' && 'group-hover:h-[20px]')}
+          className={cn('p-3', hasNumber && 'text-green-600 underline')}
           href='/'
         >
           Shops
         </Link>
         |
         <Link
-          className={cn(pathname === '/cart' && 'text-blue-600')}
+          className={cn(
+            'p-3',
+            pathname === '/cart' && 'text-green-600 underline'
+          )}
           href='/cart'
         >
           Cart
