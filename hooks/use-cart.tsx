@@ -2,14 +2,15 @@ import { create } from 'zustand';
 import { toast } from 'react-hot-toast';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-import { Product } from '@/types';
-import { AlertTriangle } from 'lucide-react';
+import { CartItem, Product } from '@/types';
 
 interface CartStore {
-  items: Product[];
+  items: CartItem[];
   addItem: (data: Product) => void;
   removeItem: (id: number) => void;
   removeAll: () => void;
+  increaseQuantity: (id: number) => void;
+  decreaseQuantity: (id: number) => void;
 }
 
 const useCart = create(
@@ -18,13 +19,16 @@ const useCart = create(
       items: [],
       addItem: (data: Product) => {
         const currentItems = get().items;
-        const existingItem = currentItems.find((item) => item.id === data.id);
+        const existingCartItem = currentItems.find(
+          (item) => item.id === data.id
+        );
 
-        if (existingItem) {
-          return toast('Item already in cart.');
+        if (existingCartItem) {
+          existingCartItem.quantity += 1;
+        } else {
+          set({ items: [...get().items, { ...data, quantity: 1 }] });
         }
 
-        set({ items: [...get().items, data] });
         toast.success('Item added to cart.');
       },
       removeItem: (id: number) => {
@@ -34,6 +38,20 @@ const useCart = create(
         toast.success('Item removed from cart.');
       },
       removeAll: () => set({ items: [] }),
+      increaseQuantity: (id: number) => {
+        const updatedItems = get().items.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+        set({ items: updatedItems });
+      },
+      decreaseQuantity: (id: number) => {
+        const updatedItems = get().items.map((item) =>
+          item.id === id && item.quantity > 1
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+        set({ items: updatedItems });
+      },
     }),
     {
       name: 'cart-storage',

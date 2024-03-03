@@ -3,11 +3,11 @@
 import Image from 'next/image';
 
 import useCart from '@/hooks/use-cart';
-import { Product } from '@/types';
+import { CartItem, Product } from '@/types';
 import { Button } from '@/components/ui/button';
 
 interface CartItemProps {
-  data: Product;
+  data: CartItem;
 }
 
 const CartItem: React.FC<CartItemProps> = ({ data }) => {
@@ -15,6 +15,14 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
 
   const onRemove = () => {
     cart.removeItem(data.id);
+  };
+
+  const onIncrease = () => {
+    cart.increaseQuantity(data.id);
+  };
+
+  const onDecrease = () => {
+    cart.decreaseQuantity(data.id);
   };
 
   return (
@@ -29,11 +37,16 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
       </div>
       <div className='relative ml-4 flex flex-1 flex-col justify-between sm:ml-6'>
         <div className='absolute z-10 right-0 top-0'>
-          <Button onClick={onRemove}>remove</Button>
+          <Button onClick={onRemove}>Remove</Button>
         </div>
         <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0'>
           <div className='flex justify-between'>
             <p className=' text-lg font-semibold text-black'>{data.name}</p>
+            <div className='flex items-center'>
+              <Button onClick={onDecrease}>-</Button>
+              <span className='mx-2'>{data.quantity}</span>
+              <Button onClick={onIncrease}>+</Button>
+            </div>
           </div>
 
           <div className='mt-1 flex text-sm'></div>

@@ -11,7 +11,7 @@ const Sidebar: React.FC<SidebarProps> = async ({ shopId }) => {
 
   return (
     <div className='flex flex-col p-5 border-2 rounded-sm h-full'>
-      <div>Shops:</div>
+      <div className='text-lg flex justify-center'>Shops:</div>
       <div className='flex flex-col'>
         {shops.map((shop) => (
           <Link
