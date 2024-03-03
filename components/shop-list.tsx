@@ -1,4 +1,4 @@
-import { Product } from '@/app/(main)/[shopId]/page';
+import { type Product } from '@/types';
 import ShopCard from './shop-cart';
 
 interface ProductListProps {
