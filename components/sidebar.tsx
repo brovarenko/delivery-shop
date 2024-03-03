@@ -7,11 +7,11 @@ const Sidebar = async () => {
   const shops = await getShops();
 
   return (
-    <div className='flex flex-col p-5 border-2 rounded-sm'>
+    <div className='flex flex-col p-5 border-2 rounded-sm h-full'>
       <div>Shops:</div>
       <div className='flex flex-col'>
         {shops.map((shop) => (
-          <Link key={shop.id} href={`/${shop.id}`}>
+          <Link className='p-4 ' key={shop.id} href={`/${shop.id}`}>
             {shop.name}
           </Link>
         ))}

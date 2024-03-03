@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className='border-b'>
       <div className='flex h-16 items-center px-4'>
         <Link
-          className={cn(pathname === '/shop1' && 'group-hover:h-[20px]')}
+          className={cn(pathname === '/' && 'group-hover:h-[20px]')}
           href='/'
         >
           Shops

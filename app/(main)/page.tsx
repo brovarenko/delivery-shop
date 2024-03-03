@@ -1,3 +1,4 @@
+import getShops from '@/actions/get-shops';
 import { redirect } from 'next/navigation';
 
 interface MainPageProps {
@@ -7,7 +8,8 @@ interface MainPageProps {
 }
 
 const MainPage: React.FC<MainPageProps> = async ({ params }) => {
-  return redirect(`/shop1`);
+  const shops = await getShops();
+  return redirect(`/${shops[0].id}`);
 };
 
 export default MainPage;
