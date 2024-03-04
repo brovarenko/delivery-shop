@@ -35,11 +35,11 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           className='object-cover object-center'
         />
       </div>
-      <div className='relative ml-4 flex flex-1 flex-col justify-between sm:ml-6'>
+      <div className='relative ml-4 flex flex-1 flex-col sm:ml-6'>
         <div className='absolute z-10 right-0 top-0'>
           <Button onClick={onRemove}>Remove</Button>
         </div>
-        <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 '>
+        <div className='flex'>
           <div className='flex justify-between'>
             <p className='mx-2 text-lg font-semibold text-black'>{data.name}</p>
             <div className='flex items-center'>
@@ -52,10 +52,8 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
               </Button>
             </div>
           </div>
-
-          <div className='mt-1 flex text-sm'></div>
-          <h2 className='font-semibold  text-lg'>$ {data.price}</h2>
         </div>
+        <h2 className='m-2 font-semibold  text-lg'>$ {data.price}</h2>
       </div>
     </li>
   );
