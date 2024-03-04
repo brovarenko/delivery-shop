@@ -9,7 +9,9 @@ interface ShopPageProps {
 
 const ShopPage: React.FC<ShopPageProps> = async ({ params }) => {
   const products = await getProduct(params.shopId);
-
+  if (!products) {
+    return null;
+  }
   return (
     <div className='flex flex-col px-4 mx-5 border-2 rounded-sm w-full h-full'>
       <ShopList items={products} />

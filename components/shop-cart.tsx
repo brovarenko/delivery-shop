@@ -2,7 +2,6 @@
 
 import { type Product } from '@/types';
 import { Button } from './ui/button';
-import pharmacy from '@/public/pharmacy.jpg';
 import Image from 'next/image';
 import useCart from '@/hooks/use-cart';
 import { MouseEventHandler } from 'react';
