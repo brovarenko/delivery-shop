@@ -1,10 +1,11 @@
-import { type Shop } from '@/types';
+import { db } from '@/lib/prismadb';
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}`;
 
-const getShops = async (): Promise<Shop[]> => {
-  const res = await fetch(`${URL}/api/shops/`);
-  return res.json();
+const getShops = async () => {
+  const shops = await db.shop.findMany({});
+
+  return shops;
 };
 
 export default getShops;
