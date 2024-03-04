@@ -48,7 +48,7 @@ const Summary = () => {
   const onSubmit = async () => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}order`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/order`,
         { customerInfo, cartItems: items }
       );
       if (response.status === 200) {
