@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         cartItems: {
           create: cartItems.map((cartItem: CartItem) => ({
             quantity: cartItem.quantity,
-            itemId: cartItem.id,
+            itemId: cartItem.itemId,
           })),
         },
       },

@@ -26,7 +26,9 @@ const useCart = create(
         if (existingCartItem) {
           existingCartItem.quantity += 1;
         } else {
-          set({ items: [...get().items, { ...data, quantity: 1 }] });
+          set({
+            items: [...get().items, { ...data, quantity: 1, itemId: data.id }],
+          });
         }
 
         toast.success('Item added to cart.');
