@@ -6,7 +6,7 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className='h-scren'>
       <Navbar />
       {children}
     </div>

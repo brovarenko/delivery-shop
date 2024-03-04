@@ -11,7 +11,10 @@ const Navbar = () => {
     <div className='text-lg border-b'>
       <div className='flex h-16 items-center px-4'>
         <Link
-          className={cn('p-3', hasNumber && 'text-green-600 underline')}
+          className={cn(
+            'p-3',
+            hasNumber && 'text-zink-600 underline font-medium'
+          )}
           href='/'
         >
           Shops
@@ -20,7 +23,7 @@ const Navbar = () => {
         <Link
           className={cn(
             'p-3',
-            pathname === '/cart' && 'text-green-600 underline'
+            pathname === '/cart' && 'text-zink-600 underline font-medium'
           )}
           href='/cart'
         >

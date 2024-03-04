@@ -30,7 +30,7 @@ const ShopCard: React.FC<ProductCard> = ({ data }) => {
         />
       </div>
       <h2 className='text-slate-400'>{data.name}</h2>
-      <h2 className='font-semibold text-green-400'>$ {data.price}</h2>
+      <h2 className='font-semibold'>$ {data.price}</h2>
       <Button onClick={onAddToCart} className='mt-2'>
         Add To Cart
       </Button>

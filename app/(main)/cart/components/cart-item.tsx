@@ -39,18 +39,22 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
         <div className='absolute z-10 right-0 top-0'>
           <Button onClick={onRemove}>Remove</Button>
         </div>
-        <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0'>
+        <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 '>
           <div className='flex justify-between'>
-            <p className=' text-lg font-semibold text-black'>{data.name}</p>
+            <p className='mx-2 text-lg font-semibold text-black'>{data.name}</p>
             <div className='flex items-center'>
-              <Button onClick={onDecrease}>-</Button>
+              <Button className='mx-2' variant={'outline'} onClick={onDecrease}>
+                -
+              </Button>
               <span className='mx-2'>{data.quantity}</span>
-              <Button onClick={onIncrease}>+</Button>
+              <Button className='mx-2' variant={'outline'} onClick={onIncrease}>
+                +
+              </Button>
             </div>
           </div>
 
           <div className='mt-1 flex text-sm'></div>
-          <h2 className='font-semibold text-green-400'>$ {data.price}</h2>
+          <h2 className='font-semibold  text-lg'>$ {data.price}</h2>
         </div>
       </div>
     </li>

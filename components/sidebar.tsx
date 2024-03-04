@@ -11,13 +11,13 @@ const Sidebar: React.FC<SidebarProps> = async ({ shopId }) => {
 
   return (
     <div className='flex flex-col p-5 border-2 rounded-sm h-full'>
-      <div className='text-lg flex justify-center'>Shops:</div>
-      <div className='flex flex-col'>
+      <div className='text-lg flex justify-center h-full'>Shops:</div>
+      <div className='flex flex-col h-full'>
         {shops.map((shop) => (
           <Link
             className={cn(
               'p-4 m-4 border-2 rounded-sm hover:cursor-pointer ',
-              shopId == shop.id && 'border-green-600'
+              shopId == shop.id && 'border-zinc-600'
             )}
             key={shop.id}
             href={`/${shop.id}`}
